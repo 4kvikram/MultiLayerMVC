@@ -1,0 +1,40 @@
+﻿@model VM_Employee
+
+<div>
+    <form  asp-action="AddEmployee">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" class="form-control " asp-for="@Model.Id" />
+
+        <div class="row px-3">
+            <div class="col-md-12 mb-3">
+                <label asp-for="@Model.Name" class="mb-2 text-dark"></label>
+                <input class="form-control " asp-for="@Model.Name" />
+                <small>
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                </small>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label asp-for="@Model.Phone" class="mb-2 text-dark"></label>
+                <input class="form-control " asp-for="@Model.Phone" />
+                <small>
+                    <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                </small>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label asp-for="@Model.Email" class="mb-2 text-dark"></label>
+                <input type="email" class="form-control " asp-for="@Model.Email" />
+                <small>
+                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                </small>
+            </div>
+            @if (Model.Id > 0)
+            {
+                <input type="submit" class="btn btn-primary" value="Update" />
+            }
+            else
+            {
+                <input type="submit" class="btn btn-primary" value="Save" />
+            }
+        </div>
+    </form>
+</div>
